@@ -16,6 +16,6 @@ jobs:
         SONAR_HOST_URL: ${{ fromJSON(inputs.env_secrets).SONARQUBE_URL }}
       with:
         args: >
-          -Dsonar.qualitygate.wait=true
+          -Dsonar.qualitygate.wait=true 
    
    
