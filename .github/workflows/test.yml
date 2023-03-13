@@ -7,7 +7,7 @@ permissions:
 
 jobs:
  deploy-aws-resources:
-   runs-on: example
+   runs-on: arm64
    steps:
     - name: SonarQube Scan
       uses: sonarsource/sonarqube-scan-action@master
