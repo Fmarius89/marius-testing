@@ -1,0 +1,19 @@
+name: Build Infra Docker Images
+on: [ push ]
+  
+permissions:
+ id-token: write
+ contents: read 
+
+jobs:
+ deploy-aws-resources:
+   runs-on: example
+   steps:
+    - name: SonarQube Scan
+      uses: sonarsource/sonarqube-scan-action@master
+      env:
+        SONAR_TOKEN: ${{ fromJSON(inputs.env_secrets).SONARQUBE_TOKEN }}
+        SONAR_HOST_URL: ${{ fromJSON(inputs.env_secrets).SONARQUBE_URL }}
+      with:
+        args: >
+          -Dsonar.qualitygate.wait=true
